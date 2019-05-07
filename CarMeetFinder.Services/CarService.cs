@@ -22,6 +22,8 @@ namespace CarMeetFinder.Services
             var entity = new Car()
             {
                 OwnerID = _userID,
+                Make = model.Make,
+                Model = model.Model,
                 Specifications = model.Specifications,
                 Description = model.Description
             };
@@ -43,6 +45,8 @@ namespace CarMeetFinder.Services
                     (e => new CarListItem
                     {
                         CarID = e.CarID,
+                        Make = e.Make,
+                        Model = e.Model,
                         Specifications = e.Specifications,
                         Description = e.Description
                     });
@@ -58,6 +62,8 @@ namespace CarMeetFinder.Services
                 return new CarListItem
                 {
                     CarID = entity.CarID,
+                    Make = entity.Make,
+                    Model = entity.Model,
                     Specifications = entity.Specifications,
                     Description = entity.Description
                 };
@@ -72,6 +78,8 @@ namespace CarMeetFinder.Services
                     (e => e.CarID == model.CarID && e.OwnerID == _userID);
                 {
                     entity.CarID = model.CarID;
+                    entity.Make = model.Make;
+                    entity.Model = model.Model;
                     entity.Specifications = model.Specifications;
                     entity.Description = model.Description;
 

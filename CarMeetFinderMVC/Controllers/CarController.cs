@@ -67,6 +67,8 @@ namespace CarMeetFinderMVC.Controllers
             var model = new CarEdit
             {
                 CarID = detail.CarID,
+                Make = detail.Make,
+                Model = detail.Model,
                 Specifications = detail.Specifications,
                 Description = detail.Description
             };
@@ -74,7 +76,7 @@ namespace CarMeetFinderMVC.Controllers
             return View(model);
         }
 
-        public ActionResult Edit(int id, CarEdit model)
+        public ActionResult EditConfirm(int id, CarEdit model)
         {
             if (!ModelState.IsValid) return View(model);
 

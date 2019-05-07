@@ -11,6 +11,8 @@ namespace CarMeetFinder.Models
     {
         [Display(Name = "Car ID")]
         public int CarID { get; set; }
+        public string Make { get; set; }
+        public string Model { get; set; }
         public string Specifications { get; set; }
         public string Description { get; set; }
     }

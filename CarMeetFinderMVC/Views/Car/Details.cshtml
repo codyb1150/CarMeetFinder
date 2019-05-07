@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CarMeetFinder.Models.CarListItem>
+﻿@model CarMeetFinder.Models.CarListItem
 
 @{
     ViewBag.Title = "Details";
@@ -6,40 +6,29 @@
 
 <h2>Details</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CarID)
-        </th>
-        <th>
+<div>
+    <h4>CarListItem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
             @Html.DisplayNameFor(model => model.Specifications)
-        </th>
-        <th>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Specifications)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th></th>
-    </tr>
+        </dt>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CarID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Specifications)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
 
-</table>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CarID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
