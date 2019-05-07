@@ -7,13 +7,12 @@ using System.Threading.Tasks;
 
 namespace CarMeetFinder.Data
 {
-    public class Meet
+   public class Car
     {
         [Key]
-        public int MeetID { get; set; }
-        public Guid OwnerID { get; set; }
-        public string Location { get; set; }
+        public int CarID { get; set; }
+        public string Specifications { get; set; }
         public string Description { get; set; }
-        public DateTimeOffset DateCreated { get; set; }
+        public Guid OwnerID { get; set; }
     }
 }

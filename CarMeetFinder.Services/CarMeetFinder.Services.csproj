@@ -54,12 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="CarService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CarMeetFinder.Data\CarMeetFinder.Data.csproj">
+      <Project>{A75F62F2-3F82-42E2-960A-5CD66E8C93E1}</Project>
+      <Name>CarMeetFinder.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarMeetFinder.Models\CarMeetFinder.Models.csproj">
+      <Project>{8E528DA3-8637-4C80-AD94-D019B1C4A747}</Project>
+      <Name>CarMeetFinder.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

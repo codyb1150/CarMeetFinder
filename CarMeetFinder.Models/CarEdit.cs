@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace CarMeetFinder.Models
 {
-    public class Class1
+    public class CarEdit
     {
+        public int CarID { get; set; }
+        public string Specifications { get; set; }
+        public string Description { get; set; }
     }
 }

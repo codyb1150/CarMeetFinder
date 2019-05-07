@@ -43,7 +43,10 @@ namespace CarMeetFinder.Data
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
         }
+
         public DbSet<Meet> Meets { get; set; }
+        public DbSet<Car> Cars { get; set; }
+        public DbSet<Member> Members { get; set; }
 
         public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
         {
