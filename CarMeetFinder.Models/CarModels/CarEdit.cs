@@ -9,10 +9,15 @@ namespace CarMeetFinder.Models
 {
     public class CarEdit
     {
+        [Display(Name = "Car ID")]
         public int CarID { get; set; }
         public string Make { get; set; }
+
+        [Display(Name = "Vehicle Model")]
         public string VehicleModel { get; set; }
         public string Specifications { get; set; }
+
+        [Display(Name = "About The Car")]
         public string Description { get; set; }
     }
 }

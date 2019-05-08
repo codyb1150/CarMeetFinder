@@ -24,7 +24,8 @@ namespace CarMeetFinder.Services
                 OwnerID = _userID,
                 FirstName = model.FirstName,
                 LastName = model.LastName,
-                Location = model.Location
+                Location = model.Location,
+                FullName = $"{model.FirstName} {model.LastName}"
 
             };
 
@@ -47,7 +48,7 @@ namespace CarMeetFinder.Services
                         MemberID = e.MemberID,
                         FirstName = e.FirstName,
                         LastName = e.LastName,
-                        //FullName = e.FullName,
+                        FullName = e.FullName,
                         Location = e.Location
                     }).ToList();
                 foreach (var member in query)
@@ -58,7 +59,7 @@ namespace CarMeetFinder.Services
             }
         }
 
-        public MemberDetail GetMemberById(int memberID)
+        public MemberDetail GetMemberByID(int memberID)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -66,7 +67,7 @@ namespace CarMeetFinder.Services
                 return new MemberDetail
                 {
                     MemberID = entity.MemberID,
-                    FullName = entity.FullName,
+                    FullName = $"{entity.FirstName} {entity.LastName}",
                     Location = entity.Location
                 };
             }
@@ -80,7 +81,7 @@ namespace CarMeetFinder.Services
                     (e => e.MemberID == model.MemberID && e.OwnerID == _userID);
                 {
                     entity.MemberID = model.MemberID;
-                    entity.FirstName = model.LastName;
+                    entity.FirstName = model.FirstName;
                     entity.LastName = model.LastName;
                     entity.Location = model.Location;
 

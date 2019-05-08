@@ -18,12 +18,6 @@ namespace CarMeetFinder.Data
         public string Location { get; set; }
         public Guid OwnerID { get; set; }
         [Display(Name = "Full Name")]
-        public string FullName
-        {
-            get
-            {
-               return $"{FirstName} {LastName}";
-            }
-        }
+        public string FullName { get; set; }
     }
 }

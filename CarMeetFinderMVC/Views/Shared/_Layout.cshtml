@@ -29,6 +29,10 @@
                     {
                         <li>@Html.ActionLink("Members", "Index", "Member")</li>
                     }
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Meets", "Index", "Meet")</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

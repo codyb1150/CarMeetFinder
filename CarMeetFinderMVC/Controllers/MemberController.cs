@@ -42,14 +42,13 @@ namespace CarMeetFinderMVC.Controllers
             }
 
             ModelState.AddModelError("", "Member Could Not Be Made");
-
             return View(model);
         }
 
         public ActionResult Details(int id)
         {
             var service = CreateMemberService();
-            var model = service.GetMemberById(id);
+            var model = service.GetMemberByID(id);
 
             return View(model);
         }
@@ -58,13 +57,15 @@ namespace CarMeetFinderMVC.Controllers
         public ActionResult Edit(int id)
         {
             var service = CreateMemberService();
-            var detail = service.GetMemberById(id);
+            var detail = service.GetMemberByID(id);
             var model = new MemberEdit
             {
                 MemberID = detail.MemberID,
                 FirstName = detail.FirstName,
                 LastName = detail.LastName,
-                Location = detail.Location
+                Location = detail.Location,
+                FullName = $"{detail.FirstName} {detail.LastName}"
+
             };
             return View(model);
         }
@@ -90,7 +91,7 @@ namespace CarMeetFinderMVC.Controllers
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Your Profile Could Not Be Updated");
+            ModelState.AddModelError("", "Nothing Was Changed, Please Enter Your Changes.");
             return View(model);
         }
 
@@ -98,7 +99,7 @@ namespace CarMeetFinderMVC.Controllers
         public ActionResult Delete(int id)
         {
             var service = CreateMemberService();
-            var model = service.GetMemberById(id);
+            var model = service.GetMemberByID(id);
 
             return View(model);
         }
@@ -116,7 +117,6 @@ namespace CarMeetFinderMVC.Controllers
 
             return RedirectToAction("Index");
         }
-
 
         public MemberService CreateMemberService()
         {

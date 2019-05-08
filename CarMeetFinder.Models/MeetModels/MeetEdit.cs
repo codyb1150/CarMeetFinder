@@ -5,18 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarMeetFinder.Data
+namespace CarMeetFinder.Models.MeetModels
 {
-    public class Meet
+    public class MeetEdit
     {
-        [Key]
         public int MeetID { get; set; }
-        public Guid OwnerID { get; set; }
+        [Display(Name = "Location Of Meet")]
         public string LocationOfMeet { get; set; }
+
+        [Display(Name = "Description Of Meet")]
         public string DescriptionOfMeet { get; set; }
+
+        [Display(Name = "Date Of Meet")]
         public string DateOfMeet { get; set; }
-        public DateTimeOffset DateCreated { get; set; }
-        
     }
 }
-

@@ -71,9 +71,10 @@ namespace CarMeetFinderMVC.Controllers
                 Specifications = detail.Specifications,
                 Description = detail.Description
             };
-
             return View(model);
+
         }
+
         // POST: Car/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -94,7 +95,8 @@ namespace CarMeetFinderMVC.Controllers
                 TempData["SaveResult"] = "Your Car Was Updated!"; ;
                 return RedirectToAction("Index");
             }
-            ModelState.AddModelError("", "Your car Could Not Be Updated");
+
+            ModelState.AddModelError("", "Nothing Was Changed, Please Enter Your Changes.");
             return View(model);
         }
 

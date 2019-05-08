@@ -17,5 +17,6 @@ namespace CarMeetFinder.Models.MemberModels
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
         public string Location { get; set; }
+        public string FullName { get; set; }
     }
 }

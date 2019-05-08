@@ -171,6 +171,7 @@
     <Compile Include="Controllers\CarController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MeetController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -246,6 +247,11 @@
     <Content Include="Views\Car\Details.cshtml" />
     <Content Include="Views\Member\Details.cshtml" />
     <Content Include="Views\Member\Delete.cshtml" />
+    <Content Include="Views\Meet\Edit.cshtml" />
+    <Content Include="Views\Meet\Index.cshtml" />
+    <Content Include="Views\Meet\Create.cshtml" />
+    <Content Include="Views\Meet\Details.cshtml" />
+    <Content Include="Views\Meet\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

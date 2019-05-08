@@ -1,0 +1,68 @@
+﻿@model IEnumerable<CarMeetFinder.Models.MeetModels.MeetListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MeetID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LocationOfMeet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescriptionOfMeet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfMeet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MeetID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocationOfMeet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescriptionOfMeet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfMeet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreated)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MeetID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MeetID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MeetID })
+            </td>
+        </tr>
+    }
+
+</table>

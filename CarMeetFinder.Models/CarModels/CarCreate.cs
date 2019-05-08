@@ -10,9 +10,9 @@ namespace CarMeetFinder.Models
     public class CarCreate
     {
         public string Make { get; set; }
-        [Display(Name = "Model")]
+
+        [Display(Name = "Vehicle Model")]
         public string VehicleModel { get; set; }
-        [Display(Name = "Car Specs")]
         public string Specifications { get; set; }
 
         [Display(Name = "About The Car")]
