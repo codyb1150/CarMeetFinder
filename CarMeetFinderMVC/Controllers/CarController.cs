@@ -14,7 +14,6 @@ namespace CarMeetFinderMVC.Controllers
     [Authorize]
     public class CarController : Controller
     {
-        private readonly ApplicationDbContext _db = new ApplicationDbContext();
 
         // GET: Car
         public ActionResult Index()
@@ -68,15 +67,17 @@ namespace CarMeetFinderMVC.Controllers
             {
                 CarID = detail.CarID,
                 Make = detail.Make,
-                Model = detail.Model,
+                VehicleModel = detail.VehicleModel,
                 Specifications = detail.Specifications,
                 Description = detail.Description
             };
 
             return View(model);
         }
-
-        public ActionResult EditConfirm(int id, CarEdit model)
+        // POST: Car/Edit
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, CarEdit model)
         {
             if (!ModelState.IsValid) return View(model);
 
@@ -98,29 +99,23 @@ namespace CarMeetFinderMVC.Controllers
         }
 
         // GET: Car/Delete
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            };
+            var service = CreateCarService();
+            var model = service.GetCarByID(id);
 
-            Car car = _db.Cars.Find(id);
-            if (car == null)
-            {
-                return HttpNotFound();
-            }
-            return View(car);
+            return View(model);
         }
 
-        // POST: Delete/Car
+        // POST: Car/Delete
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirm(int id)
         {
-            Car car = _db.Cars.Find(id);
-            _db.Cars.Remove(car);
-            _db.SaveChanges();
+            var service = CreateCarService();
+            service.DeleteCar(id);
+            TempData["SaveResult"] = "Your Car Was Deleted.";
+
             return RedirectToAction("Index");
         }
 

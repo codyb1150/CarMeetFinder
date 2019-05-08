@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace CarMeetFinder.Models
 {
-    public class CarListItem
+    public class CarEdit
     {
-        [Display(Name = "Car ID")]
         public int CarID { get; set; }
         public string Make { get; set; }
-        public string Model { get; set; }
+        public string VehicleModel { get; set; }
         public string Specifications { get; set; }
         public string Description { get; set; }
     }

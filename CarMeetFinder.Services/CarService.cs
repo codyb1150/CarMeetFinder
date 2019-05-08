@@ -1,5 +1,6 @@
 ﻿using CarMeetFinder.Data;
 using CarMeetFinder.Models;
+using CarMeetFinder.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace CarMeetFinder.Services
             {
                 OwnerID = _userID,
                 Make = model.Make,
-                Model = model.Model,
+                VehicleModel = model.VehicleModel,
                 Specifications = model.Specifications,
                 Description = model.Description
             };
@@ -46,7 +47,7 @@ namespace CarMeetFinder.Services
                     {
                         CarID = e.CarID,
                         Make = e.Make,
-                        Model = e.Model,
+                        VehicleModel = e.VehicleModel,
                         Specifications = e.Specifications,
                         Description = e.Description
                     });
@@ -54,16 +55,16 @@ namespace CarMeetFinder.Services
             }
         }
 
-        public CarListItem GetCarByID(int carID)
+        public CarDetail GetCarByID(int carID)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity = ctx.Cars.Single(e => e.CarID == carID && e.OwnerID == _userID);
-                return new CarListItem
+                return new CarDetail
                 {
                     CarID = entity.CarID,
                     Make = entity.Make,
-                    Model = entity.Model,
+                    VehicleModel = entity.VehicleModel,
                     Specifications = entity.Specifications,
                     Description = entity.Description
                 };
@@ -79,12 +80,26 @@ namespace CarMeetFinder.Services
                 {
                     entity.CarID = model.CarID;
                     entity.Make = model.Make;
-                    entity.Model = model.Model;
+                    entity.VehicleModel = model.VehicleModel;
                     entity.Specifications = model.Specifications;
                     entity.Description = model.Description;
 
                     return ctx.SaveChanges() == 1;
                 }
+            }
+        }
+
+        public bool DeleteCar(int carID)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx
+                    .Cars
+                    .Single(e => e.CarID == carID && e.OwnerID == _userID);
+
+                ctx.Cars.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
             }
         }
     }

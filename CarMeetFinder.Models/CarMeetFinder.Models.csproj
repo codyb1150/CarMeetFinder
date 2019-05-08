@@ -54,9 +54,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CarCreate.cs" />
-    <Compile Include="CarEdit.cs" />
-    <Compile Include="CarListItem.cs" />
+    <Compile Include="CarModels\CarCreate.cs" />
+    <Compile Include="CarModels\CarDelete.cs" />
+    <Compile Include="CarModels\CarDetail.cs" />
+    <Compile Include="CarModels\CarEdit.cs" />
+    <Compile Include="CarModels\CarListItem.cs" />
+    <Compile Include="MemberModels\MemberDelete.cs" />
+    <Compile Include="MemberModels\MemberDetail.cs" />
+    <Compile Include="MemberModels\MemberCreate.cs" />
+    <Compile Include="MemberModels\MemberEdit.cs" />
+    <Compile Include="MemberModels\MemberListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

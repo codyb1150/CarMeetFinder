@@ -5,25 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarMeetFinder.Data
+namespace CarMeetFinder.Models.MemberModels
 {
-    public class Member
+    public class MemberDetail
     {
-        [Key]
+        [Display(Name = "Member ID")]
         public int MemberID { get; set; }
-        [Required]
+
         public string FirstName { get; set; }
-        [Required]
         public string LastName { get; set; }
-        public string Location { get; set; }
-        public Guid OwnerID { get; set; }
+
         [Display(Name = "Full Name")]
-        public string FullName
-        {
-            get
-            {
-               return $"{FirstName} {LastName}";
-            }
-        }
+        public string FullName { get; set; }
+        public string Location { get; set; }
     }
 }
