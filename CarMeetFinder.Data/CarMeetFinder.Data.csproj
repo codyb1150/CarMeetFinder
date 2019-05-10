@@ -54,53 +54,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attendance.cs" />
     <Compile Include="Car.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Meet.cs" />
     <Compile Include="Member.cs" />
-    <Compile Include="Migrations\201905062003326_InitialCreate.cs" />
-    <Compile Include="Migrations\201905062003326_InitialCreate.Designer.cs">
-      <DependentUpon>201905062003326_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905071357326_Initial.cs" />
-    <Compile Include="Migrations\201905071357326_Initial.Designer.cs">
-      <DependentUpon>201905071357326_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905071441049_Location.cs" />
-    <Compile Include="Migrations\201905071441049_Location.Designer.cs">
-      <DependentUpon>201905071441049_Location.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905071711405_FullName.cs" />
-    <Compile Include="Migrations\201905071711405_FullName.Designer.cs">
-      <DependentUpon>201905071711405_FullName.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905071902167_Changes.cs" />
-    <Compile Include="Migrations\201905071902167_Changes.Designer.cs">
-      <DependentUpon>201905071902167_Changes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905081352168_DateOfMeet.cs" />
-    <Compile Include="Migrations\201905081352168_DateOfMeet.Designer.cs">
-      <DependentUpon>201905081352168_DateOfMeet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905081549360_LocationOfMeet.cs" />
-    <Compile Include="Migrations\201905081549360_LocationOfMeet.Designer.cs">
-      <DependentUpon>201905081549360_LocationOfMeet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905081551570_DescriptionOfMeet.cs" />
-    <Compile Include="Migrations\201905081551570_DescriptionOfMeet.Designer.cs">
-      <DependentUpon>201905081551570_DescriptionOfMeet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905081811356_Removal.cs" />
-    <Compile Include="Migrations\201905081811356_Removal.Designer.cs">
-      <DependentUpon>201905081811356_Removal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905081918270_DateTime.cs" />
-    <Compile Include="Migrations\201905081918270_DateTime.Designer.cs">
-      <DependentUpon>201905081918270_DateTime.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905081922249_RemovedDateTime.cs" />
-    <Compile Include="Migrations\201905081922249_RemovedDateTime.Designer.cs">
-      <DependentUpon>201905081922249_RemovedDateTime.cs</DependentUpon>
+    <Compile Include="Migrations\201905101332211_InitialCreate.cs" />
+    <Compile Include="Migrations\201905101332211_InitialCreate.Designer.cs">
+      <DependentUpon>201905101332211_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -110,38 +71,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201905062003326_InitialCreate.resx">
-      <DependentUpon>201905062003326_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905071357326_Initial.resx">
-      <DependentUpon>201905071357326_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905071441049_Location.resx">
-      <DependentUpon>201905071441049_Location.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905071711405_FullName.resx">
-      <DependentUpon>201905071711405_FullName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905071902167_Changes.resx">
-      <DependentUpon>201905071902167_Changes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905081352168_DateOfMeet.resx">
-      <DependentUpon>201905081352168_DateOfMeet.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905081549360_LocationOfMeet.resx">
-      <DependentUpon>201905081549360_LocationOfMeet.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905081551570_DescriptionOfMeet.resx">
-      <DependentUpon>201905081551570_DescriptionOfMeet.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905081811356_Removal.resx">
-      <DependentUpon>201905081811356_Removal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905081918270_DateTime.resx">
-      <DependentUpon>201905081918270_DateTime.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905081922249_RemovedDateTime.resx">
-      <DependentUpon>201905081922249_RemovedDateTime.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905101332211_InitialCreate.resx">
+      <DependentUpon>201905101332211_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

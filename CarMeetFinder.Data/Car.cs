@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CarMeetFinder.Data
 {
-   public class Car
+    public class Car
     {
         [Key]
         public int CarID { get; set; }
@@ -16,5 +16,7 @@ namespace CarMeetFinder.Data
         public string VehicleModel { get; set; }
         public string Specifications { get; set; }
         public string Description { get; set; }
+        public int MemberID { get; set; }
+        public virtual Member Member { get; set; }
     }
 }

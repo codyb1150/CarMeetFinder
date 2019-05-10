@@ -17,6 +17,7 @@ namespace CarMeetFinder.Data
         public string LastName { get; set; }
         public string Location { get; set; }
         public Guid OwnerID { get; set; }
+
         [Display(Name = "Full Name")]
         public string FullName { get; set; }
     }

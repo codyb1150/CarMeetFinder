@@ -8,15 +8,48 @@ namespace CarMeetFinder.Data.Migrations
         public override void Up()
         {
             CreateTable(
+                "dbo.Attendance",
+                c => new
+                    {
+                        AttendanceID = c.Int(nullable: false, identity: true),
+                        OwnerID = c.Guid(nullable: false),
+                        CarID = c.Int(nullable: false),
+                        MeetID = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.AttendanceID)
+                .ForeignKey("dbo.Car", t => t.CarID, cascadeDelete: true)
+                .ForeignKey("dbo.Meet", t => t.MeetID, cascadeDelete: true)
+                .Index(t => t.CarID)
+                .Index(t => t.MeetID);
+            
+            CreateTable(
                 "dbo.Car",
                 c => new
                     {
                         CarID = c.Int(nullable: false, identity: true),
+                        OwnerID = c.Guid(nullable: false),
+                        Make = c.String(),
+                        VehicleModel = c.String(),
                         Specifications = c.String(),
                         Description = c.String(),
-                        OwnerID = c.Guid(nullable: false),
+                        MemberID = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.CarID);
+                .PrimaryKey(t => t.CarID)
+                .ForeignKey("dbo.Member", t => t.MemberID, cascadeDelete: true)
+                .Index(t => t.MemberID);
+            
+            CreateTable(
+                "dbo.Member",
+                c => new
+                    {
+                        MemberID = c.Int(nullable: false, identity: true),
+                        FirstName = c.String(nullable: false),
+                        LastName = c.String(nullable: false),
+                        Location = c.String(),
+                        OwnerID = c.Guid(nullable: false),
+                        FullName = c.String(),
+                    })
+                .PrimaryKey(t => t.MemberID);
             
             CreateTable(
                 "dbo.Meet",
@@ -24,22 +57,12 @@ namespace CarMeetFinder.Data.Migrations
                     {
                         MeetID = c.Int(nullable: false, identity: true),
                         OwnerID = c.Guid(nullable: false),
-                        Location = c.String(),
-                        Description = c.String(),
+                        LocationOfMeet = c.String(),
+                        DescriptionOfMeet = c.String(),
+                        DateOfMeet = c.String(),
                         DateCreated = c.DateTimeOffset(nullable: false, precision: 7),
                     })
                 .PrimaryKey(t => t.MeetID);
-            
-            CreateTable(
-                "dbo.Member",
-                c => new
-                    {
-                        MemberID = c.Int(nullable: false, identity: true),
-                        OwnerID = c.Guid(nullable: false),
-                        FirstName = c.String(),
-                        LastName = c.String(),
-                    })
-                .PrimaryKey(t => t.MemberID);
             
             CreateTable(
                 "dbo.IdentityRole",
@@ -119,18 +142,25 @@ namespace CarMeetFinder.Data.Migrations
             DropForeignKey("dbo.IdentityUserLogin", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
+            DropForeignKey("dbo.Attendance", "MeetID", "dbo.Meet");
+            DropForeignKey("dbo.Attendance", "CarID", "dbo.Car");
+            DropForeignKey("dbo.Car", "MemberID", "dbo.Member");
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
+            DropIndex("dbo.Car", new[] { "MemberID" });
+            DropIndex("dbo.Attendance", new[] { "MeetID" });
+            DropIndex("dbo.Attendance", new[] { "CarID" });
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
             DropTable("dbo.ApplicationUser");
             DropTable("dbo.IdentityUserRole");
             DropTable("dbo.IdentityRole");
-            DropTable("dbo.Member");
             DropTable("dbo.Meet");
+            DropTable("dbo.Member");
             DropTable("dbo.Car");
+            DropTable("dbo.Attendance");
         }
     }
 }

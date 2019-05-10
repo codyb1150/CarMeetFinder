@@ -1,5 +1,6 @@
 ﻿using CarMeetFinder.Data;
 using CarMeetFinder.Models;
+using CarMeetFinder.Models.AttendanceModels;
 using CarMeetFinder.Services;
 using Microsoft.AspNet.Identity;
 using System;
@@ -27,6 +28,8 @@ namespace CarMeetFinderMVC.Controllers
         // GET: Car/Create
         public ActionResult Create()
         {
+            var serviceAttendance = CreateMemberService();
+            ViewBag.MemberID = new SelectList(serviceAttendance.GetMembers(),"MemberID", "FullName");
             return View();
         }
 
@@ -37,16 +40,15 @@ namespace CarMeetFinderMVC.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            var service = CreateCarService();
+            var serviceCar = CreateCarService(); 
 
-            if (service.CreateCar(model))
+            if (serviceCar.CreateCar(model))
             {
                 TempData["SaveResult"] = "Your Car Was Created!";
                 return RedirectToAction("Index");
             }
 
             ModelState.AddModelError("", "Car Could Not Be Created.");
-
             return View(model);
         }
 
@@ -107,6 +109,7 @@ namespace CarMeetFinderMVC.Controllers
             var model = service.GetCarByID(id);
 
             return View(model);
+            
         }
 
         // POST: Car/Delete
@@ -125,6 +128,14 @@ namespace CarMeetFinderMVC.Controllers
         {
             var userID = Guid.Parse(User.Identity.GetUserId());
             var service = new CarService(userID);
+            return service;
+        }
+
+       
+        private MemberService CreateMemberService()
+        {
+            var userID = Guid.Parse(User.Identity.GetUserId());
+            var service = new MemberService(userID);
             return service;
         }
     }

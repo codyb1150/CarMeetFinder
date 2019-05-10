@@ -17,5 +17,8 @@ namespace CarMeetFinder.Models
 
         [Display(Name = "About The Car")]
         public string Description { get; set; }
+
+        [Display(Name = "Whos Car Does This Belong To?")]
+        public int MemberID { get; set; }
     }
 }

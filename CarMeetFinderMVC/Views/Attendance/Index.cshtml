@@ -1,0 +1,51 @@
+﻿@model IEnumerable<CarMeetFinder.Models.AttendanceModels.AttendanceListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AttendanceID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MeetID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MemberID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CarID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AttendanceID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MeetID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MemberID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.AttendanceID  }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AttendanceID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AttendanceID })
+        </td>
+    </tr>
+}
+
+</table>

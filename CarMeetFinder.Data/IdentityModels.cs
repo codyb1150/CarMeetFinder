@@ -48,6 +48,8 @@ namespace CarMeetFinder.Data
         public DbSet<Car> Cars { get; set; }
         public DbSet<Member> Members { get; set; }
 
+        public DbSet<Attendance> Attendances { get; set; }
+
 
         public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
         {

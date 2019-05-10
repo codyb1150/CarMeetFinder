@@ -54,6 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttendanceModels\AttendanceCreate.cs" />
+    <Compile Include="AttendanceModels\AttendanceDetail.cs" />
+    <Compile Include="AttendanceModels\AttendanceListItem.cs" />
+    <Compile Include="AttendanceModels\CarSelect.cs" />
+    <Compile Include="AttendanceModels\MeetSelect.cs" />
     <Compile Include="CarModels\CarCreate.cs" />
     <Compile Include="CarModels\CarDetail.cs" />
     <Compile Include="CarModels\CarEdit.cs" />
@@ -71,6 +76,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CarMeetFinder.Data\CarMeetFinder.Data.csproj">
+      <Project>{A75F62F2-3F82-42E2-960A-5CD66E8C93E1}</Project>
+      <Name>CarMeetFinder.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

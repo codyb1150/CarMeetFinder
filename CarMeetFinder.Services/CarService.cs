@@ -1,11 +1,8 @@
 ﻿using CarMeetFinder.Data;
 using CarMeetFinder.Models;
-using CarMeetFinder.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CarMeetFinder.Services
 {
@@ -26,7 +23,8 @@ namespace CarMeetFinder.Services
                 Make = model.Make,
                 VehicleModel = model.VehicleModel,
                 Specifications = model.Specifications,
-                Description = model.Description
+                Description = model.Description,
+                MemberID = model.MemberID
             };
 
             using (var ctx = new ApplicationDbContext())

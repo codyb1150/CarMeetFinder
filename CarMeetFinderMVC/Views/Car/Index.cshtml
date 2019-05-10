@@ -29,12 +29,12 @@
         <th>
             @Html.DisplayNameFor(model => model.VehicleModel)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Specifications)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Description)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -50,12 +50,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.VehicleModel)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Specifications)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
-            </td>
+            </td>*@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.CarID }) |
                 @Html.ActionLink("Details", "Details", new { id = item.CarID }) |
