@@ -9,43 +9,50 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
+
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.AttendanceID)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Car.DisplayName)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.MeetID)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MemberID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CarID)
-        </th>
+
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.AttendanceID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MeetID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MemberID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CarID)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new {  id=item.AttendanceID  }) |
-            @Html.ActionLink("Details", "Details", new { id=item.AttendanceID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AttendanceID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AttendanceID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Car.DisplayName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Meet.LocationOfMeet)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.AttendanceID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.AttendanceID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.AttendanceID })
+            </td>
+        </tr>
+    }
 
 </table>

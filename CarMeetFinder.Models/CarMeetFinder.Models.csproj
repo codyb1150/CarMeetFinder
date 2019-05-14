@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="AttendanceModels\AttendanceCreate.cs" />
     <Compile Include="AttendanceModels\AttendanceDetail.cs" />
+    <Compile Include="AttendanceModels\AttendanceEdit.cs" />
     <Compile Include="AttendanceModels\AttendanceListItem.cs" />
     <Compile Include="AttendanceModels\CarSelect.cs" />
     <Compile Include="AttendanceModels\MeetSelect.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="CarModels\CarDetail.cs" />
     <Compile Include="CarModels\CarEdit.cs" />
     <Compile Include="CarModels\CarListItem.cs" />
+    <Compile Include="CarModels\SelectMember.cs" />
     <Compile Include="MeetModels\MeetCreate.cs" />
     <Compile Include="MeetModels\MeetEdit.cs" />
     <Compile Include="MeetModels\MeetListItem.cs" />

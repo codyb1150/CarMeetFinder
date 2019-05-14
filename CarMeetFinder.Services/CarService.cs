@@ -1,5 +1,6 @@
 ﻿using CarMeetFinder.Data;
 using CarMeetFinder.Models;
+using CarMeetFinder.Models.CarModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +16,30 @@ namespace CarMeetFinder.Services
             _userID = userID;
         }
 
+        public string GetDisplayName(int id, string make)
+        {
+            using (ApplicationDbContext db = new ApplicationDbContext())
+            {
+                var carlist = db.Cars.ToList();
+                string displayname = "";
+                foreach (Car car in carlist)
+                {
+                    if (id == car.Member.MemberID)
+                    {
+                        displayname = $"{car.Member.FullName} {make}";
+                    }
+                }
+                return displayname;
+            }
+        }
+
         public bool CreateCar(CarCreate model)
         {
+            Member mem = new Member();
+            using (var ctx = new ApplicationDbContext())
+            {
+                mem = ctx.Members.Single(e => e.MemberID == model.MemberID);
+            }
             var entity = new Car()
             {
                 OwnerID = _userID,
@@ -24,13 +47,15 @@ namespace CarMeetFinder.Services
                 VehicleModel = model.VehicleModel,
                 Specifications = model.Specifications,
                 Description = model.Description,
-                MemberID = model.MemberID
+                MemberID = model.MemberID,
+                DisplayName = $"{mem.FullName} {model.Make}"
             };
 
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Cars.Add(entity);
                 return ctx.SaveChanges() == 1;
+
             };
         }
 
@@ -47,9 +72,19 @@ namespace CarMeetFinder.Services
                         Make = e.Make,
                         VehicleModel = e.VehicleModel,
                         Specifications = e.Specifications,
-                        Description = e.Description
+                        Description = e.Description,
+                        DisplayName = e.DisplayName,
+                        Member = e.Member
                     });
                 return query.ToList();
+            };
+        }
+
+        public List<Member> GetMemberList()
+        {
+            using (ApplicationDbContext db = new ApplicationDbContext())
+            {
+                return db.Members.ToList();
             }
         }
 
@@ -64,7 +99,8 @@ namespace CarMeetFinder.Services
                     Make = entity.Make,
                     VehicleModel = entity.VehicleModel,
                     Specifications = entity.Specifications,
-                    Description = entity.Description
+                    Description = entity.Description,
+                    DisplayName = entity.DisplayName
                 };
             }
         }

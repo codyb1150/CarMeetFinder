@@ -49,7 +49,6 @@ namespace CarMeetFinderMVC.Controllers
         {
             var service = CreateMemberService();
             var model = service.GetMemberByID(id);
-
             return View(model);
         }
 
@@ -65,7 +64,6 @@ namespace CarMeetFinderMVC.Controllers
                 LastName = detail.LastName,
                 Location = detail.Location,
                 FullName = $"{detail.FirstName} {detail.LastName}"
-
             };
             return View(model);
         }

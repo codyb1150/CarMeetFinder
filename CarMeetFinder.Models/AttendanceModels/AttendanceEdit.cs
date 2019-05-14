@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CarMeetFinder.Models.AttendanceModels
 {
-    public class AttendanceListItem
+    public class AttendanceEdit
     {
         [Display(Name = "Attendance ID")]
         public int AttendanceID { get; set; }
@@ -19,8 +19,7 @@ namespace CarMeetFinder.Models.AttendanceModels
         [Display(Name = "Car ID")]
         public int CarID { get; set; }
 
-        
-        public Meet Meet { get; set; }
+        public Member Member { get; set; }
         public Car Car { get; set; }
     }
 }

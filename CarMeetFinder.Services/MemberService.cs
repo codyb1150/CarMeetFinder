@@ -26,7 +26,6 @@ namespace CarMeetFinder.Services
                 LastName = model.LastName,
                 Location = model.Location,
                 FullName = $"{model.FirstName} {model.LastName}"
-
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -63,15 +62,20 @@ namespace CarMeetFinder.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Members.Single(e => e.MemberID == memberID && e.OwnerID == _userID);
+                var entity = ctx.Members.Single(e => e.MemberID == memberID);
                 return new MemberDetail
                 {
                     MemberID = entity.MemberID,
                     FullName = $"{entity.FirstName} {entity.LastName}",
-                    Location = entity.Location
+                    Location = entity.Location,
+                    
                 };
             }
         }
+
+
+
+
 
         public bool UpdateMember(MemberEdit model)
         {
@@ -94,7 +98,7 @@ namespace CarMeetFinder.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity  = ctx.Members.Single(e => e.MemberID == memberID && e.OwnerID == _userID);
+                var entity  = ctx.Members.Single(e => e.MemberID == memberID);
 
                 ctx.Members.Remove(entity);
 

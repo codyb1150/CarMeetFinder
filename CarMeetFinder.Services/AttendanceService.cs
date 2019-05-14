@@ -24,12 +24,10 @@ namespace CarMeetFinder.Services
                 OwnerID = _userID,
                 CarID = model.CarID,
                 MeetID = model.MeetID,
-                //MemberID = model.CarID
             };
 
             using (var ctx = new ApplicationDbContext())
             {
-                //entity.MemberID = ctx.Cars.Find(model.CarID).MemberID;
                 ctx.Attendances.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
@@ -43,7 +41,6 @@ namespace CarMeetFinder.Services
                 List<Car> listOfOwnedCars =
                     ctx
                         .Cars
-                        //.Where(c => c.OwnerID == _userID)
                         .ToList();
 
                 foreach (Car car in listOfOwnedCars)
@@ -81,6 +78,23 @@ namespace CarMeetFinder.Services
             }
         }
 
+        public List<Meet> GetMeetList()
+        {
+            using (ApplicationDbContext db = new ApplicationDbContext())
+            {
+                return db.Meets.ToList();
+            }
+        }
+
+        public List<Car> GetCarList()
+        {
+            using (ApplicationDbContext db = new ApplicationDbContext())
+            {
+                return db.Cars.ToList();
+            }
+        }
+
+
         public IEnumerable<AttendanceListItem> GetAttendance()
         {
             using (var ctx = new ApplicationDbContext())
@@ -93,10 +107,59 @@ namespace CarMeetFinder.Services
                         AttendanceID = e.AttendanceID,
                         CarID = e.CarID,
                         MeetID = e.MeetID,
-                        MemberID = e.Car.MemberID
-                    });
-                return query.ToList();
+
+                        Car = e.Car,
+                        Meet = e.Meet
+
+                    }).ToList();
+
+                return query;
+            }
+        }
+
+        public AttendanceListItem GetAttendanceByID(int attendanceID)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Attendances.Single(e => e.AttendanceID == attendanceID && e.OwnerID == _userID);
+                return new AttendanceListItem
+                {
+                    AttendanceID = entity.AttendanceID,
+                    CarID = entity.CarID,
+                    MeetID = entity.MeetID,
+                };
+            }
+        }
+
+        public bool UpdateAttendance(AttendanceEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Attendances.Single
+                    (e => e.AttendanceID == model.AttendanceID && e.OwnerID == _userID);
+                {
+                    entity.AttendanceID = model.AttendanceID;
+                    entity.CarID = model.CarID;
+                    entity.MeetID = model.MeetID;
+
+                    return ctx.SaveChanges() == 1;
+                }
+            }
+        }
+
+        public bool DeleteAttendance(int attendanceID)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx
+                    .Attendances
+                    .Single(e => e.AttendanceID == attendanceID && e.OwnerID == _userID);
+
+                ctx.Attendances.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
             }
         }
     }
 }
+

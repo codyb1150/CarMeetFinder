@@ -66,6 +66,7 @@ namespace CarMeetFinderMVC.Controllers
                 DescriptionOfMeet = detail.DescriptionOfMeet,
                 DateOfMeet = detail.DateOfMeet
             };
+
             return View(model);
         }
         // POST: Meet/Edit
@@ -98,7 +99,6 @@ namespace CarMeetFinderMVC.Controllers
         {
             var service = CreateMeetService();
             var model = service.GetMeetByID(id);
-
             return View(model);
         }
         

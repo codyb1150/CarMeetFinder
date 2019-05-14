@@ -32,6 +32,7 @@ namespace CarMeetFinder.Data.Migrations
                         VehicleModel = c.String(),
                         Specifications = c.String(),
                         Description = c.String(),
+                        DisplayName = c.String(),
                         MemberID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.CarID)

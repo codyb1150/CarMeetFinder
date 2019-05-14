@@ -15,9 +15,6 @@ namespace CarMeetFinder.Models.AttendanceModels
         [Display(Name = "Meet ID")]
         public int MeetID { get; set; }
 
-        [Display(Name = "Member ID")]
-        public int MemberID { get; set; }
-
         [Display(Name = "Car ID")]
         public int CarID { get; set; }
     }

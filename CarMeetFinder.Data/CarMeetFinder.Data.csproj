@@ -59,9 +59,17 @@
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Meet.cs" />
     <Compile Include="Member.cs" />
-    <Compile Include="Migrations\201905101332211_InitialCreate.cs" />
-    <Compile Include="Migrations\201905101332211_InitialCreate.Designer.cs">
-      <DependentUpon>201905101332211_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201905131706269_InitialCreate.cs" />
+    <Compile Include="Migrations\201905131706269_InitialCreate.Designer.cs">
+      <DependentUpon>201905131706269_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905131736487_refactorin.cs" />
+    <Compile Include="Migrations\201905131736487_refactorin.Designer.cs">
+      <DependentUpon>201905131736487_refactorin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905131740167_refactoringggggg.cs" />
+    <Compile Include="Migrations\201905131740167_refactoringggggg.Designer.cs">
+      <DependentUpon>201905131740167_refactoringggggg.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,8 +79,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201905101332211_InitialCreate.resx">
-      <DependentUpon>201905101332211_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905131706269_InitialCreate.resx">
+      <DependentUpon>201905131706269_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905131736487_refactorin.resx">
+      <DependentUpon>201905131736487_refactorin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905131740167_refactoringggggg.resx">
+      <DependentUpon>201905131740167_refactoringggggg.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

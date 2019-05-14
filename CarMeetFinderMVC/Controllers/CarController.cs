@@ -28,8 +28,8 @@ namespace CarMeetFinderMVC.Controllers
         // GET: Car/Create
         public ActionResult Create()
         {
-            var serviceAttendance = CreateMemberService();
-            ViewBag.MemberID = new SelectList(serviceAttendance.GetMembers(),"MemberID", "FullName");
+            var serviceAttendance = CreateCarService();
+            ViewBag.MemberID = new SelectList(serviceAttendance.GetMemberList(),"MemberID", "FullName");
             return View();
         }
 
@@ -49,6 +49,8 @@ namespace CarMeetFinderMVC.Controllers
             }
 
             ModelState.AddModelError("", "Car Could Not Be Created.");
+
+            ViewBag.MemberID = new SelectList(serviceCar.GetMemberList(), "MemberID", "FullName", model.MemberID);
             return View(model);
         }
 
@@ -107,9 +109,7 @@ namespace CarMeetFinderMVC.Controllers
         {
             var service = CreateCarService();
             var model = service.GetCarByID(id);
-
             return View(model);
-            
         }
 
         // POST: Car/Delete
@@ -128,14 +128,6 @@ namespace CarMeetFinderMVC.Controllers
         {
             var userID = Guid.Parse(User.Identity.GetUserId());
             var service = new CarService(userID);
-            return service;
-        }
-
-       
-        private MemberService CreateMemberService()
-        {
-            var userID = Guid.Parse(User.Identity.GetUserId());
-            var service = new MemberService(userID);
             return service;
         }
     }
