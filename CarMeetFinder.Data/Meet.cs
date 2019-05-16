@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,9 @@ namespace CarMeetFinder.Data
         public string LocationOfMeet { get; set; }
         public string DescriptionOfMeet { get; set; }
         public string DateOfMeet { get; set; }
+
+        [DefaultValue(false)]
+        public bool IsGoing { get; set; }
         public DateTimeOffset DateCreated { get; set; }
         
     }

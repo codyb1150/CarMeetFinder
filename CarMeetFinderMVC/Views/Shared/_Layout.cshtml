@@ -19,7 +19,7 @@
                     </button>
                     @Html.ActionLink("Car Meet Finder", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 </div>
-                <div class="navbar-collapse collapse">
+                @*<div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         @if (User.Identity.IsAuthenticated)
                         {
@@ -38,15 +38,13 @@
                         {
                             <li>@Html.ActionLink("My Attendance", "Index", "Attendance")</li>
                         }
-                    </ul>
+                    </ul>*@
                     @Html.Partial("_LoginPartial")
-                </div>
             </div>
         </div>
         <div class="container body-content">
             @RenderBody()
             <footer>
-                <p>&copy; @DateTime.Now.Year - Car Meet Finder </p>
             </footer>
         </div>
 

@@ -3,11 +3,13 @@
 @{
     ViewBag.Title = "Index";
 }
+<link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
 
-<h2>Index</h2>
+
+<h2 id="indexHeader">Cars</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Click To Add Your Car", "Create", null, new { @class = "createnew" })
 </p>
 @if (TempData.ContainsKey("SaveResult"))
 {
@@ -29,12 +31,6 @@
         <th>
             @Html.DisplayNameFor(model => model.VehicleModel)
         </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.Specifications)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>*@
         <th></th>
     </tr>
 
@@ -50,18 +46,41 @@
             <td>
                 @Html.DisplayFor(modelItem => item.VehicleModel)
             </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.Specifications)
-            </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>*@
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.CarID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.CarID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.CarID })
+                @Html.ActionLink("Edit", "Edit", null, new { id = item.CarID }, new { @class = "actionlinkstuff" }) |
+                @Html.ActionLink("Details", "Details", null, new { id = item.CarID }, new { @class = "actionlinkstuff" }) |
+                @Html.ActionLink("Delete", "Delete", null, new { id = item.CarID }, new { @class = "actionlinkstuff" })
             </td>
         </tr>
     }
-
 </table>
+
+<div id="outer1">
+    <div class="button_slide1 slide_left1">
+        @if (User.Identity.IsAuthenticated)
+        {
+            @Html.ActionLink("Cars", "Index", "Car", null, new { @class = "actionlinkstuff" })
+        }
+    </div>
+    <div class="button_slide slide_left">
+        @if (User.Identity.IsAuthenticated)
+        {
+            @Html.ActionLink("Members", "Index", "Member", null, new { @class = "actionlinkstuff" })
+        }
+    </div>
+    <div class="button_slide slide_left">
+        @if (User.Identity.IsAuthenticated)
+        {
+            @Html.ActionLink("Meets", "Index", "Meet", null, new { @class = "actionlinkstuff" })
+        }
+    </div>
+    <div class="button_slide slide_left">
+        @if (User.Identity.IsAuthenticated)
+        {
+            @Html.ActionLink("My Attendance", "Index", "Attendance", null, new { @class = "actionlinkstuff" })
+        }
+    </div>
+</div>
+
+
+

@@ -49,6 +49,7 @@ namespace CarMeetFinder.Services
                         LocationOfMeet = e.LocationOfMeet,
                         DescriptionOfMeet = e.DescriptionOfMeet,
                         DateOfMeet = e.DateOfMeet,
+                        IsGoing = e.IsGoing,
                         DateCreated = e.DateCreated
                     });
                 
@@ -83,6 +84,7 @@ namespace CarMeetFinder.Services
                     entity.MeetID = model.MeetID;
                     entity.LocationOfMeet = model.LocationOfMeet;
                     entity.DescriptionOfMeet = model.DescriptionOfMeet;
+                    entity.IsGoing = model.IsGoing;
                     entity.DateOfMeet = model.DateOfMeet;
 
                     return ctx.SaveChanges() == 1;

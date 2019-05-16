@@ -3,12 +3,15 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
+
+
+<h2 id="indexHeader">Details</h2>
 
 <div>
-    <h4>CarDetail</h4>
+    <h4 id="indexHeader">More About The Car</h4>
     <hr />
-    <dl class="dl-horizontal">
+    <dl class="dl-horizontal" id="detailswhite">
         <dt>
             @Html.DisplayNameFor(model => model.CarID)
         </dt>
@@ -16,6 +19,7 @@
         <dd>
             @Html.DisplayFor(model => model.CarID)
         </dd>
+        </br>
 
         <dt>
             @Html.DisplayNameFor(model => model.Make)
@@ -24,6 +28,7 @@
         <dd>
             @Html.DisplayFor(model => model.Make)
         </dd>
+        </br>
 
         <dt>
             @Html.DisplayNameFor(model => model.VehicleModel)
@@ -32,6 +37,7 @@
         <dd>
             @Html.DisplayFor(model => model.VehicleModel)
         </dd>
+        </br>
 
         <dt>
             @Html.DisplayNameFor(model => model.Specifications)
@@ -40,6 +46,7 @@
         <dd>
             @Html.DisplayFor(model => model.Specifications)
         </dd>
+        </br>
 
         <dt>
             @Html.DisplayNameFor(model => model.Description)
@@ -52,6 +59,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CarID  }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", null, new { id = Model.CarID }, new { @class = "actionlinkbacktolist" }) |
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "actionlinkbacktolist" })
 </p>

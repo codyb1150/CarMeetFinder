@@ -21,6 +21,7 @@ namespace CarMeetFinder.Models.MeetModels
         [Display(Name = "Date Of Meet")]
         public string DateOfMeet { get; set; }
 
+
         [Display(Name = "Date Created")]
         public DateTimeOffset DateCreated { get; set; }
 
