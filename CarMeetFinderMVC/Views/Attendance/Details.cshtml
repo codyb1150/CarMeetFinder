@@ -9,20 +9,19 @@
 <h2 id="indexHeader">Attendance</h2>
 
 <div>
-    <h4 id="indexHeader">AttendanceListItem</h4>
     <hr />
     <dl class="dl-horizontal" id="detailswhite">
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.AttendanceID)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.AttendanceID)
         </dd>
-        </br>
+        </br>*@
 
         <dt>
-           Location Of Meet
+            @Html.DisplayNameFor(model => model.MeetID)
         </dt>
 
         <dd>
@@ -35,7 +34,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CarID)
+            @Html.DisplayFor(model => model.Car.DisplayName)
         </dd>
 
     </dl>

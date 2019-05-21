@@ -16,6 +16,7 @@ namespace CarMeetFinder.Models
         [Display(Name = "Vehicle Model")]
         public string VehicleModel { get; set; }
         public string Specifications { get; set; }
+        public string CarCombine { get; set; }
 
         [Display(Name = "About The Car")]
         public string Description { get; set; }

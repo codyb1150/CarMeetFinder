@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
-    <h2 id="indexHeader">Attendance</h2>
-    <p>
-        @Html.ActionLink("Click To Add A Meet You Attended", "Create", null, new { @class = "createnew" })
-    </p>
+<h2 id="indexHeader">Attendance</h2>
+<p>
+    @Html.ActionLink("Click To Add A Meet You Attended", "Create", null, new { @class = "createnew" })
+</p>
 @if (TempData.ContainsKey("SaveResult"))
 {
     <div class="alert alert-success fade in" role="alert">
@@ -18,42 +18,34 @@
     </div>
 }
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.AttendanceID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Car.DisplayName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MeetID)
-        </th>
+<hr />
 
-        <th></th>
-    </tr>
+@foreach (var item in Model)
+{
+    <div id="b1">
+        <a href="">
+            @Html.ActionLink(item.Car.VehicleModel, "Details", null, new { id = item.AttendanceID }, new { @class = "actionlinkstuff" })
+            <div id="b2"> </div>
+            <div id="b3"></div>
+        </a>
+    </div>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.AttendanceID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Car.DisplayName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Meet.LocationOfMeet)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", null, new { id = item.AttendanceID }, new { @class = "actionlinkstuff" }) |
-                @Html.ActionLink("Details", "Details", null, new { id = item.AttendanceID }, new { @class = "actionlinkstuff" }) |
-                @Html.ActionLink("Delete", "Delete", null, new { id = item.AttendanceID }, new { @class = "actionlinkstuff" })
-            </td>
-        </tr>
-    }
+    // Experimental Random Background Color Changer (WORKS) 
 
-</table>
+@*@Scripts.Render("~/bundles/jquery")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var colors = ["#CCCCCC", "#333333", "#990099"];
+        var rand = Math.floor(Math.random() * colors.length);
+        $("#b1").css("background-color", colors[rand]);
+    });
+</script>*@
+}
+
+
+<hr />
+
 
 <div id="outer1">
     <div class="button_slide1 slide_left1">

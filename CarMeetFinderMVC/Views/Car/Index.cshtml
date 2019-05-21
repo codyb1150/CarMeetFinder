@@ -20,40 +20,22 @@
         @TempData["SaveResult"]
     </div>
 }
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CarID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Make)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VehicleModel)
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CarID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Make)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VehicleModel)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", null, new { id = item.CarID }, new { @class = "actionlinkstuff" }) |
-                @Html.ActionLink("Details", "Details", null, new { id = item.CarID }, new { @class = "actionlinkstuff" }) |
-                @Html.ActionLink("Delete", "Delete", null, new { id = item.CarID }, new { @class = "actionlinkstuff" })
-            </td>
-        </tr>
-    }
-</table>
+<hr />
+
+
+@foreach (var item in Model)
+{
+    <div id="b1">
+        <a href="">
+            @Html.ActionLink(item.CarCombine, "Details", null, new { id = item.CarID }, new { @class = "actionlinkstuff" })
+            <div id="b2"> </div>
+            <div id="b3"></div>
+        </a>
+    </div>
+}
+
+<hr />
 
 <div id="outer1">
     <div class="button_slide1 slide_left1">

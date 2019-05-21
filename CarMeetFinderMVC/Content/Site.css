@@ -19,7 +19,7 @@
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
-textareafor {
+textarea {
     max-width: 280px;
 }
 
@@ -38,15 +38,12 @@ textareafor {
 }
 
 .navbar {
-    /*background-color: #25282A;*/
-    /*background-color: rgba(255, 255, 255, 0.5);*/
     background-color: rgba(0, 0, 0, 0.5);
     font-family: "Exo";
     font-weight: bold;
 }
 
 .form-horizontal {
-    color: white !important;
     border: solid 2px rgba(255, 255, 255, 0.5);
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 5px;
@@ -79,6 +76,7 @@ textareafor {
     padding: 10px;
     width: auto;
     font-family: "Exo";
+    margin-bottom: 20px;
 }
 
 .button_slide {
@@ -97,6 +95,7 @@ textareafor {
     -webkit-transition: ease-out 0.4s;
     -moz-transition: ease-out 0.4s;
     transition: ease-out 0.4s;
+    word-wrap:
 }
 
 .slide_left:hover {
@@ -110,7 +109,6 @@ textareafor {
     position: relative;
     width: 100%;
     padding: 20px;
-    
 }
 
 
@@ -138,7 +136,7 @@ textareafor {
 
 #outer1 {
     width: 364px;
-    margin: 100px auto 0 auto;
+    margin: 50px auto 0 auto;
     text-align: center;
     position: relative;
     width: 100%;
@@ -169,7 +167,7 @@ textareafor {
 .createnew {
     color: white !important;
     background-color: rgba(255, 255, 255, 0.5) !important;
-    padding: 5px;
+    padding: 8px;
     border-radius: 30px;
     font-weight: bold !important;
     text-decoration: none !important;
@@ -180,9 +178,9 @@ textareafor {
     transition: ease-out 0.8s;
 }
 
-.createnew:hover {
-    box-shadow: inset 0 0px 50px 20px rgba(113, 216, 130, 0.5);
-}
+    .createnew:hover {
+        box-shadow: inset 0 0px 50px 20px rgba(113, 216, 130, 0.5);
+    }
 
 .control-label, col-md-2 {
     color: white !important;
@@ -196,6 +194,69 @@ textareafor {
     font-family: "Exo";
     padding: 10px;
 }
+/*-----------------------------------*/
 
+#b1 {
+    display: inline-grid;
+    text-align: center;
+    height: 200px;
+    width: 200px;
+    margin: 10px auto;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: .8s ease;
+    border-radius: 50%;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    margin-left: 50px;
+}
 
+#b2 {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    border: 7px solid white;
+    border-radius: 50%;
+    transition: all .8s ease-out;
+    z-index: 1;
+    top: -0px;
+}
 
+#b3 {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    border: 7px solid white;
+    border-radius: 50%;
+    transition: all .8s ease;
+    top: 0px;
+}
+
+#b1:hover #b2 {
+    transform: rotateX(360deg)
+}
+
+#b1:hover #b3 {
+    transform: rotateY(360deg)
+}
+
+#b1:hover {
+    background: transparent;
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.5) inset;
+}
+
+    #b1:hover a {
+        color: #a10000;
+    }
+
+#b1 a {
+    font-family: arial;
+    font-size: 18px;
+    color: #fff;
+    line-height: 200px;
+    text-decoration: none;
+    transition: all .8s ease;
+    text-transform: uppercase;
+    z-index: 6;
+    font-family: "Exo";
+}

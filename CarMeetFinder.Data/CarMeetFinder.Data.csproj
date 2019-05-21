@@ -87,6 +87,18 @@
     <Compile Include="Migrations\201905161520541_Isgoing.Designer.cs">
       <DependentUpon>201905161520541_Isgoing.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905201322582_removal.cs" />
+    <Compile Include="Migrations\201905201322582_removal.Designer.cs">
+      <DependentUpon>201905201322582_removal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905201854252_CarCombiner.cs" />
+    <Compile Include="Migrations\201905201854252_CarCombiner.Designer.cs">
+      <DependentUpon>201905201854252_CarCombiner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905201909458_removegetset.cs" />
+    <Compile Include="Migrations\201905201909458_removegetset.Designer.cs">
+      <DependentUpon>201905201909458_removegetset.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -106,6 +118,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905161520541_Isgoing.resx">
       <DependentUpon>201905161520541_Isgoing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905201322582_removal.resx">
+      <DependentUpon>201905201322582_removal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905201854252_CarCombiner.resx">
+      <DependentUpon>201905201854252_CarCombiner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905201909458_removegetset.resx">
+      <DependentUpon>201905201909458_removegetset.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

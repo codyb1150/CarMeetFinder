@@ -127,6 +127,9 @@ namespace CarMeetFinder.Services
                     AttendanceID = entity.AttendanceID,
                     CarID = entity.CarID,
                     MeetID = entity.MeetID,
+
+                    Car = entity.Car,
+                    Meet = entity.Meet
                 };
             }
         }

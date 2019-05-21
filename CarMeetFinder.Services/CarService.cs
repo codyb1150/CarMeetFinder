@@ -26,7 +26,7 @@ namespace CarMeetFinder.Services
                 {
                     if (id == car.Member.MemberID)
                     {
-                        displayname = $"{car.Member.FullName} {make}";
+                        displayname = $"{car.Member.FullName}, {make}";
                     }
                 }
                 return displayname;
@@ -48,7 +48,8 @@ namespace CarMeetFinder.Services
                 Specifications = model.Specifications,
                 Description = model.Description,
                 MemberID = model.MemberID,
-                DisplayName = $"{mem.FullName} {model.Make}"
+                DisplayName = $"{mem.FullName}, {model.Make}",
+                CarCombine = $"{model.Make} {model.VehicleModel}"
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -74,9 +75,14 @@ namespace CarMeetFinder.Services
                         Specifications = e.Specifications,
                         Description = e.Description,
                         DisplayName = e.DisplayName,
-                        Member = e.Member
-                    });
-                return query.ToList();
+                        Member = e.Member,
+                        CarCombine = e.CarCombine
+                    }).ToList();
+                foreach (var car in query)
+                {
+                    car.CarCombine = $"{car.Make} {car.VehicleModel}";
+                }
+                return query;
             };
         }
 
@@ -92,7 +98,7 @@ namespace CarMeetFinder.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Cars.Single(e => e.CarID == carID && e.OwnerID == _userID);
+                var entity = ctx.Cars.Single(e => e.CarID == carID);
                 return new CarDetail
                 {
                     CarID = entity.CarID,
@@ -100,7 +106,8 @@ namespace CarMeetFinder.Services
                     VehicleModel = entity.VehicleModel,
                     Specifications = entity.Specifications,
                     Description = entity.Description,
-                    DisplayName = entity.DisplayName
+                    DisplayName = entity.DisplayName,
+                    CarCombine = entity.CarCombine
                 };
             }
         }

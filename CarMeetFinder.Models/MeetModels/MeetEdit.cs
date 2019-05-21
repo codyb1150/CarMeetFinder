@@ -16,9 +16,6 @@ namespace CarMeetFinder.Models.MeetModels
         [Display(Name = "Description Of Meet")]
         public string DescriptionOfMeet { get; set; }
 
-        [Display(Name = "Going?")]
-        public bool IsGoing { get; set; }
-
         [Display(Name = "Date Of Meet")]
         public string DateOfMeet { get; set; }
     }

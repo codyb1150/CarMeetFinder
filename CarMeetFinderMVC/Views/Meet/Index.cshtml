@@ -22,11 +22,10 @@
         @TempData["SaveResult"]
     </div>
 }
-<table class="table">
+
+<hr />
+@*<table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.MeetID)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.LocationOfMeet)
         </th>
@@ -37,22 +36,16 @@
             @Html.DisplayNameFor(model => model.DateOfMeet)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IsGoing)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.DateCreated)
         </th>
 
         <th></th>
-    </tr>
+    </tr>*@
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MeetID)
-            </td>
-            <td>
+
+@foreach (var item in Model)
+{
+    @*<td>
                 @Html.DisplayFor(modelItem => item.LocationOfMeet)
             </td>
             <td>
@@ -62,21 +55,31 @@
                 @Html.DisplayFor(modelItem => item.DateOfMeet)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IsGoing)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.DateCreated)
             </td>
             <td>
+
+             <div class="col33">
+        <a href=""><!-- link in here -->
+          <div class="button style_5">ButtonText</div>
+        </a>
                 @Html.ActionLink("Edit", "Edit", null, new { id = item.MeetID }, new { @class = "actionlinkstuff" }) |
                 @Html.ActionLink("Details", "Details", null, new { id = item.MeetID }, new { @class = "actionlinkstuff" }) |
                 @Html.ActionLink("Delete", "Delete", null, new { id = item.MeetID }, new { @class = "actionlinkstuff" })
-            </td>
-        </tr>
-    }
+            </td>*@
 
-</table>
 
+<div id="b1">
+    <a href="">
+        @Html.ActionLink(item.LocationOfMeet, "Details", null, new { id = item.MeetID }, new { @class = "actionlinkstuff" })
+        <div id="b2"> </div>
+        <div id="b3"></div>
+    </a>
+</div>
+}
+
+
+<hr />
 
 <div id="outer1">
     <div class="button_slide1 slide_left1">
@@ -104,29 +107,3 @@
         }
     </div>
 </div>
-
-@section scripts {
-    <script language="javascript" type="text/javascript">
-        $(document).ready(function () {
-            $("i[data-toggle='star']")
-                .css({ "cursor": "pointer" })
-                .click(function (e) {
-                    var target = $(e.target);
-                    var noteId = target.attr("data-id");
-                    var starSet = target.hasClass("glyphicon-star");
-
-                    $.ajax({
-                        method: starSet ? "DELETE" : "PUT",
-                        url: "/api/note/" + noteId + "/star",
-                        data: null
-                    })
-                        .done(function (r) {
-                            target.removeClass();
-                            target.addClass("glyphicon " + (starSet ? "glyphicon-star-empty" : "glyphicon-star"));
-                        })
-                        .fail(function (r) {
-                            alert("Failed to change star status");
-                        });
-                });
-        });</script>
-}

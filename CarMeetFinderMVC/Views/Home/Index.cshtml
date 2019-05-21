@@ -4,32 +4,22 @@
     <h1><b>Car Meet Finder</b></h1>
     <p><b>Find The Whereabouts Of Local Car Meets and Explore The Diverse Car Community</b></p>
 
-    <div id="outer">
-        <div class="button_slide slide_left">
-            @if (User.Identity.IsAuthenticated)
-            {
-                @Html.ActionLink("Cars", "Index", "Car", null, new { @class = "actionlinkstuff"})
-            }
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div id="outer">
+            <div class="button_slide slide_left">
+                @Html.ActionLink("Cars", "Index", "Car", null, new { @class = "actionlinkstuff" })
+            </div>
+            <div class="button_slide slide_left">
+                @Html.ActionLink("Members", "Index", "Member", null, new { @class = "actionlinkstuff" })
+            </div>
+            <div class="button_slide slide_left">
+                @Html.ActionLink("Meets", "Index", "Meet", null, new { @class = "actionlinkstuff" })
+            </div>
+            <div class="button_slide slide_left">
+                @Html.ActionLink("My Attendance", "Index", "Attendance", null, new { @class = "actionlinkstuff" })
+            </div>
         </div>
-        <div class="button_slide slide_left">
-            @if (User.Identity.IsAuthenticated)
-            {
-                @Html.ActionLink("Members", "Index", "Member", null, new { @class = "actionlinkstuff"})
-            }
-        </div>
-        <div class="button_slide slide_left">
-            @if (User.Identity.IsAuthenticated)
-            {
-                @Html.ActionLink("Meets", "Index", "Meet", null, new { @class = "actionlinkstuff"})
-            }
-        </div>
-        <div class="button_slide slide_left">
-            @if (User.Identity.IsAuthenticated)
-            {
-                @Html.ActionLink("My Attendance", "Index", "Attendance", null, new { @class = "actionlinkstuff"})
-            }
-        </div>
-    </div>
-</div>
+    }
 
 

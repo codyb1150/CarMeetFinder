@@ -6,21 +6,11 @@
 
 <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
 
-<h2 id="indexHeader">Details</h2>
+<h2 id="indexHeader">About</h2>
 
 <div>
-    <h4 id="indexHeader">MemberDetail</h4>
     <hr />
     <dl class="dl-horizontal" id="detailswhite">
-        <dt>
-            @Html.DisplayNameFor(model => model.MemberID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MemberID)
-        </dd>
-        </br>
-
         <dt>
             @Html.DisplayNameFor(model => model.FullName)
         </dt>
@@ -42,5 +32,7 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", null, new { id = Model.MemberID }, new { @class = "actionlinkbacktolist" }) |
-    @Html.ActionLink("Back to List", "Index", null, new { @class = "actionlinkbacktolist" })
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "actionlinkbacktolist" }) |
+    @Html.ActionLink("Delete", "Delete", null, new { id = Model.MemberID }, new { @class = "actionlinkbacktolist" })
+
 </p>

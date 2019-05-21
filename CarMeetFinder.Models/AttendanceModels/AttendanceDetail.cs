@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarMeetFinder.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -17,5 +18,8 @@ namespace CarMeetFinder.Models.AttendanceModels
 
         [Display(Name = "Car ID")]
         public int CarID { get; set; }
+
+        public Meet Meet { get; set; }
+        public Car Car { get; set; }
     }
 }

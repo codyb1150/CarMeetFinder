@@ -17,6 +17,7 @@ namespace CarMeetFinder.Data
         public string Specifications { get; set; }
         public string Description { get; set; }
         public string DisplayName { get; set; }
+        public string CarCombine { get; set; }
         public int MemberID { get; set; }
         public virtual Member Member { get; set; }
     }

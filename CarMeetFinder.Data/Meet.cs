@@ -16,9 +16,7 @@ namespace CarMeetFinder.Data
         public string LocationOfMeet { get; set; }
         public string DescriptionOfMeet { get; set; }
         public string DateOfMeet { get; set; }
-
-        [DefaultValue(false)]
-        public bool IsGoing { get; set; }
+       
         public DateTimeOffset DateCreated { get; set; }
         
     }

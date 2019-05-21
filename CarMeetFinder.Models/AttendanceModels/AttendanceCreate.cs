@@ -10,14 +10,11 @@ namespace CarMeetFinder.Models.AttendanceModels
 {
    public class AttendanceCreate
     {
-        [Display(Name = "Attendance ID")]
+        [Display(Name = "Member")]
         public int AttendanceID { get; set; }
 
-        [Display(Name = "Meet ID")]
+        [Display(Name = "Meet Location")]
         public int MeetID { get; set; }
-
-        [Display(Name = "Member ID")]
-        public int MemberID { get; set; }
 
         [Display(Name = "Car ID")]
         public int CarID { get; set; }
