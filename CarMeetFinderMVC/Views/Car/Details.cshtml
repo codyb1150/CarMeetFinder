@@ -10,54 +10,22 @@
 
 <div>
     <hr />
-    <dl class="dl-horizontal" id="detailswhite">
-        <dt>
-            @Html.DisplayNameFor(model => model.Make)
-        </dt>
-
-        <dd>
+    <div class="card">
+        <h1 id="headerOne">
             @Html.DisplayFor(model => model.Make)
-        </dd>
-        </br>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.VehicleModel)
-        </dt>
-
-        <dd>
+            <br />
             @Html.DisplayFor(model => model.VehicleModel)
-        </dd>
-        </br>
-
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DisplayName)
-        </dt>
-
-        <dd>
+            <br />
             @Html.DisplayFor(model => model.DisplayName)
-        </dd>
-        </br>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Specifications)
-        </dt>
-
-        <dd>
+            <br />
             @Html.DisplayFor(model => model.Specifications)
-        </dd>
-        </br>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
+            <br />
             @Html.DisplayFor(model => model.Description)
-        </dd>
-
-    </dl>
+        </h1>
+    </div>
+    <hr />
 </div>
+
 <p>
     @Html.ActionLink("Edit", "Edit", null, new { id = Model.CarID }, new { @class = "actionlinkbacktolist" }) |
     @Html.ActionLink("Back to List", "Index", null, new { @class = "actionlinkbacktolist" }) |
