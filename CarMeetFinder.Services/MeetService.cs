@@ -60,7 +60,7 @@ namespace CarMeetFinder.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Meets.Single(e => e.MeetID == meetID && e.OwnerID == _userID);
+                var entity = ctx.Meets.Single(e => e.MeetID == meetID);
                 return new MeetDetail
                 {
                     MeetID = entity.MeetID,
@@ -78,7 +78,7 @@ namespace CarMeetFinder.Services
             using (var ctx = new ApplicationDbContext())
             {
                 var entity = ctx.Meets.Single
-                    (e => e.MeetID == model.MeetID && e.OwnerID == _userID);
+                    (e => e.MeetID == model.MeetID);
                 {
                     entity.MeetID = model.MeetID;
                     entity.LocationOfMeet = model.LocationOfMeet;
@@ -96,7 +96,7 @@ namespace CarMeetFinder.Services
             {
                 var entity = ctx
                     .Meets
-                    .Single(e => e.MeetID == meetID && e.OwnerID == _userID);
+                    .Single(e => e.MeetID == meetID);
                 ctx.Meets.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }
