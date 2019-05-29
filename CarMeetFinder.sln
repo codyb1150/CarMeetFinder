@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarMeetFinder.Models", "Car
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarMeetFinder.Services", "CarMeetFinder.Services\CarMeetFinder.Services.csproj", "{B6851481-18CB-46EB-9945-FCEBF162448E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarMeetFinder.WebAPI", "CarMeetFinder.WebAPI\CarMeetFinder.WebAPI.csproj", "{EA9432D6-7C99-4E7F-A4F5-C724C5147D85}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B6851481-18CB-46EB-9945-FCEBF162448E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6851481-18CB-46EB-9945-FCEBF162448E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6851481-18CB-46EB-9945-FCEBF162448E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA9432D6-7C99-4E7F-A4F5-C724C5147D85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA9432D6-7C99-4E7F-A4F5-C724C5147D85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA9432D6-7C99-4E7F-A4F5-C724C5147D85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA9432D6-7C99-4E7F-A4F5-C724C5147D85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
